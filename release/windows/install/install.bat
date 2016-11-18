@@ -65,4 +65,5 @@ del j_unzip.vbs
 python-2.7.12.msi
 
 :: Install Convert
-copy %~dp0\..\..\mkv2mp4.py %USERPROFILE%\Desktop
+copy %~dp0\..\..\mkv2mp4.py C:\ffmpeg
+%USERPROFILE%\Desktop
