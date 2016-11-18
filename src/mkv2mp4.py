@@ -50,17 +50,20 @@ def checkDetails():
     # check if FFmpeg installed
     ffmpegLocation = which("ffmpeg")
     if ffmpegLocation is None:
-        print("ERROR: ffmpeg not installed")
-        messagebox.showinfo("ERROR", "The ffmpeg executable cannot be found, please make sure you have correctly installed this program and all dependencies")
-        sys.exit()
+        ffmpegLocation = which("C:\\\\ffmpeg\\ffmpeg.exe")
+        if ffmpegLocation is None:
+            print("ERROR: ffmpeg not installed")
+            messagebox.showinfo("ERROR", "The ffmpeg executable cannot be found, please make sure you have correctly installed this program and all dependencies")
+            sys.exit()
 
 def convert(filename):
-    #ffmpeg -i $fullfilename -c copy "${fullfilename%.mkv}.mp4"
     outName = filename[:-4] + ".mp4"
     print outName
     print filename
-    if isPosix:
-        call(ffmpegLocation + " -i \"" + filename + "\" -c copy \"" + outName + "\"", shell = True)
+    result = call(ffmpegLocation + " -i \"" + filename + "\" -c copy \"" + outName + "\"", shell = True)
+    if result != 0:
+        messagebox.showinfo("ERROR", "An error occured with the call to ffmpeg, to troubleshoot, run this program again from the terminal")
+        sys.exit()
 
 checkDetails()
 
