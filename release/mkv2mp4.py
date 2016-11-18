@@ -58,8 +58,6 @@ def checkDetails():
 
 def convert(filename):
     outName = filename[:-4] + ".mp4"
-    print outName
-    print filename
     result = call(ffmpegLocation + " -i \"" + filename + "\" -c copy \"" + outName + "\"", shell = True)
     if result != 0:
         messagebox.showinfo("ERROR", "An error occured with the call to ffmpeg, to troubleshoot, run this program again from the terminal")
@@ -72,3 +70,8 @@ file_path = filedialog.askopenfilename()
 root.update()
 if file_path is not None:
     convert(file_path)
+if isWindows:
+    call("del " + file_path)
+elif isPosix:
+    call("rm " + file_path)
+messagebox.showinfo("DONE", "Your conversion is done")
