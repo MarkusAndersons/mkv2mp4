@@ -58,6 +58,7 @@ cscript //B j_unzip.vbs ffmpeg.zip
 mkdir C:\ffmpeg
 copy ffmpeg.exe C:\ffmpeg
 del ffmpeg.exe
+del j_unzip.vbs
 
 
 :: Install Python
