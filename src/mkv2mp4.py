@@ -71,7 +71,7 @@ root.update()
 if file_path is not None:
     convert(file_path)
 if isWindows:
-    call("del " + file_path)
+    call("del " + file_path, shell = True)
 elif isPosix:
-    call("rm " + file_path)
+    call("rm " + file_path, shell = True)
 messagebox.showinfo("DONE", "Your conversion is done")
