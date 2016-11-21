@@ -20,3 +20,9 @@ NOTE: The Unix install script will not install Python, if it is not installed on
 
 ## Usage
 To use the application on Windows, simply double-click on the batch script on the desktop and select the MKV file you wish to convert from the dialog displayed.
+
+To use the application on Unix, as it is installed in */usr/local/bin*, it should be in your path, so simply running
+```bash
+$ mkv2mp4
+```
+in the command line should be all that is needed for it to start.
